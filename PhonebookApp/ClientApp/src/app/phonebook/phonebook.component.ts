@@ -20,7 +20,7 @@ export class PhoneBookComponent implements OnInit {
   getPeople() {
     this.http.get('https://localhost:44362/api/weatherforecast')
       .subscribe(response => {
-        this.values = Response;
+        this.values = response;
         console.log(response);
       }, error => {
           console.log(error);

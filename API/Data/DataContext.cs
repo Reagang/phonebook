@@ -12,5 +12,6 @@ namespace API.Data
     {
         public DataContext(DbContextOptions<DataContext> options): base(options){}
         public DbSet<Person> Person { get; set; }
+        public DbSet<Phone> Phone { get; set; }
     }
 }

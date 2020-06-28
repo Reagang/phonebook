@@ -7,10 +7,13 @@ namespace API.Models
 {
     public class Phone
     {
-        public virtual int PersonId { get; set; }
-        public virtual string Number { get; set; }
-        public virtual Person Person { get; set; }
+        public int Id { get; set; }
+        public string Number { get; set; }
+        
         public DateTime CreationTime { get; set; }
-        public virtual bool IsActive { get; set; }
+        public bool IsActive { get; set; }
+
+        public Person Person { get; set; }
+        public int PersonId { get; set; }
     }
 }
