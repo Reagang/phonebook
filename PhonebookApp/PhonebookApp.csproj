@@ -24,10 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\material\material.module.ts" />
     <None Remove="ClientApp\src\app\phonebook\phonebook.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\material\material.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\phonebook\phonebook.component.ts" />
   </ItemGroup>
 

@@ -24,6 +24,22 @@ var PhoneBookComponent = /** @class */ (function () {
             console.log(error);
         });
     };
+    PhoneBookComponent.prototype.onSubmit = function (data) {
+        this.http.post('https://localhost:44362/api/' + 'person', data)
+            .subscribe(function (result) {
+            console.warn("result", result);
+        });
+    };
+    PhoneBookComponent.prototype.onClick = function (event) {
+        this.showModal = true; // Show-Hide Modal Check
+        this.id = event.target.id;
+        this.name = document.getElementById("name" + this.id).innerHTML;
+        this.surname = document.getElementById("surname" + this.id).innerHTML;
+    };
+    //Bootstrap Modal Close event
+    PhoneBookComponent.prototype.hide = function () {
+        this.showModal = false;
+    };
     PhoneBookComponent = __decorate([
         core_1.Component({
             selector: 'app-home',

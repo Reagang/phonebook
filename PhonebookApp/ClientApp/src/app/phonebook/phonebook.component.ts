@@ -9,6 +9,7 @@ import { error } from '@angular/compiler/src/util';
 })
 export class PhoneBookComponent implements OnInit {
   values: any;
+  term: string;
   constructor(private http: HttpClient) {
 
   }
@@ -25,5 +26,26 @@ export class PhoneBookComponent implements OnInit {
       }, error => {
           console.log(error);
       })
+  }
+  onSubmit(data) {
+    this.http.post('https://localhost:44362/api/' + 'person', data)
+      .subscribe((result) => {
+        console.warn("result", result)
+      });
+  }
+  showModal: boolean;
+  id: number;
+  name: string;
+  surname: string;
+  number: string;
+  onClick(event) {
+    this.showModal = true; // Show-Hide Modal Check
+    this.id = event.target.id;
+    this.name = document.getElementById("name" + this.id).innerHTML;
+    this.surname = document.getElementById("surname" + this.id).innerHTML;
+  }
+  //Bootstrap Modal Close event
+  hide() {
+    this.showModal = false;
   }
 }

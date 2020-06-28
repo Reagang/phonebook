@@ -1,3 +1,70 @@
-<p *ngFor="let value of values">
+<!--<p *ngFor="let value of values">
   {{value.id}},{{value.name}}, {{value.surname}}, {{value.number}}
-</p>
+</p>-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row">
+        <h2 class="pb-2 mt-4 mb-2  col-md-7">
+          Phone book
+        </h2>
+        <div class="col-md-5 ">
+          <button (click)="onClick($event)" class="btn btn-success float-right pb-2 mt-4 mb-2"><i class="fa fa-plus"></i> Add new entry</button>
+        </div>
+      </div>
+      <div>
+        <div class="list-group">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+          </div>
+          <a href="javascript:;" class="list-group-item" *ngFor="let person of values | filter:term">
+            <h4 class="list-group-item-heading">
+              {{person.name}} {{person.surname}}
+            </h4>
+            <p class="list-group-item-text text-muted">
+              {{person.number}}
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- The Modal -->
+  <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Phonebook entry:</h4>
+          <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost)">
+            <div class="form-group">
+              <label for="name" class="col-form-label">Name:</label>
+              <input type="text" ngModel class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="surname" class="col-form-label">Surname:</label>
+              <input type="text" ngModel class="form-control" id="surname">
+            </div>
+            <div class="form-group">
+              <label for="number" class="col-form-label">Number:</label>
+              <input type="text" ngModel class="form-control" id="number">
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
