@@ -52,3 +52,4 @@ C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\runtimes\win\l
 C:\Assessments\Absa\project\Phonebook\API\obj\Debug\netcoreapp3.1\API.csproj.CoreCompileInputs.cache
 C:\Assessments\Absa\project\Phonebook\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cache
 C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Assessments\Absa\project\Phonebook\API\obj\Debug\netcoreapp3.1\API.csprojAssemblyReference.cache
