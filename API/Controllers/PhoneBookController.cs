@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Data;
+using API.Dtos;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,11 +15,22 @@ namespace API.Controllers
     [ApiController]
     public class PhoneBookController : ControllerBase
     {
+        private readonly IPhonebookRepository _repo;
+        private readonly IMapper _mapper;
+
+        public PhoneBookController(IPhonebookRepository repo,IMapper mapper)
+        {
+            _repo = repo;
+            _mapper = mapper;
+        }
         // GET: api/<PhoneBookController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            var person = await _repo.GetPhonebookList();
+
+            var phonebookList = _mapper.Map<IEnumerable<PhonebookListDto>>(person);
+            return Ok(phonebookList);
         }
 
         // GET api/<PhoneBookController>/5

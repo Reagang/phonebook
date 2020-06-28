@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace API.Dtos
 {
-    public class PhonebookList
+    public class PersonPhoneDto
     {
+        public string Number { get; set; }
     }
 }

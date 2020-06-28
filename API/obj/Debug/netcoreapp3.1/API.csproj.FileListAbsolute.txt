@@ -49,7 +49,13 @@ C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\runtimes\win-x
 C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Assessments\Absa\project\Phonebook\API\obj\Debug\netcoreapp3.1\API.csproj.CoreCompileInputs.cache
-C:\Assessments\Absa\project\Phonebook\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cache
 C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Assessments\Absa\project\Phonebook\API\obj\Debug\netcoreapp3.1\API.csprojAssemblyReference.cache
+C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Assessments\Absa\project\Phonebook\API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Assessments\Absa\project\Phonebook\API\obj\Debug\netcoreapp3.1\API.csproj.CoreCompileInputs.cache
+C:\Assessments\Absa\project\Phonebook\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cache
