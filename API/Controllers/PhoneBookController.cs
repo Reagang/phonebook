@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Dtos;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -42,9 +43,33 @@ namespace API.Controllers
 
         // POST api/<PhoneBookController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult> Post(PhonebookEntryRequest model)
         {
-            
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    await _repo.AddPhoneBookEntry(model);
+                    return Ok("Inserted successfully!");
+                }
+                else
+                {
+                    return BadRequest("Failed to insert new phone entry!");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex);
+            }
+            //CompetitionCategory competitionCategory = new CompetitionCategory();
+            //foreach (var CategoryName in model.SelectedCategories)
+            //{
+            //    competitionCategory.CategoryName = CategoryName;
+            //    competitionCategory.CompetitionID = model.competition.ID;
+
+            //}
+            //_context.Add(model.competition);
+            //await _context.SaveChangesAsync();
         }
 
         // PUT api/<PhoneBookController>/5

@@ -8,8 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var PhoneBookComponent = /** @class */ (function () {
-    function PhoneBookComponent(http) {
+    function PhoneBookComponent(formBuilder, http) {
+        this.formBuilder = formBuilder;
         this.http = http;
+        this.form = this.formBuilder.group({
+            name: [''],
+            surname: [''],
+            number: ['']
+        });
     }
     PhoneBookComponent.prototype.ngOnInit = function () {
         this.getPeople();
@@ -19,22 +25,44 @@ var PhoneBookComponent = /** @class */ (function () {
         this.http.get('https://localhost:44362/api/Phonebook')
             .subscribe(function (response) {
             _this.values = response;
-            console.log(response);
+            //console.log(response);
         }, function (error) {
             console.log(error);
         });
     };
-    PhoneBookComponent.prototype.onSubmit = function (data) {
-        this.http.post('https://localhost:44362/api/' + 'person', data)
+    PhoneBookComponent.prototype.onSubmit = function (formData) {
+        console.log(formData);
+        this.values.push(formData);
+        var cloned = this.values.slice();
+        // OR IN ES6 // let cloned = [...dataSource]
+        this.values = cloned;
+        //var formData: any = new FormData();
+        //formData.append("name", this.form.get('name').value);
+        //formData.append("surname", this.form.get('surname').value);
+        //formData.append("number", this.form.get('number').value);
+        var data = JSON.stringify(formData);
+        console.log(data);
+        console.log(formData);
+        this.http.post('https://localhost:44362/api/' + 'PhoneBook', formData)
             .subscribe(function (result) {
             console.warn("result", result);
+        }, function (error) {
+            console.log(error);
         });
+        this.hide();
     };
     PhoneBookComponent.prototype.onClick = function (event) {
+        console.log(event);
         this.showModal = true; // Show-Hide Modal Check
-        this.id = event.target.id;
-        this.name = document.getElementById("name" + this.id).innerHTML;
-        this.surname = document.getElementById("surname" + this.id).innerHTML;
+        //this.id = event.target.id;
+        //this.name = document.getElementById("name").innerHTML;
+        //this.surname = document.getElementById("surname").innerHTML;
+        //this.number = document.getElementById("number").innerHTML;
+        ////this.postData.id = event.target.id;
+        //this.postData.name = document.getElementById("name").innerHTML;
+        //this.postData.surname = document.getElementById("surname").innerHTML;
+        //this.postData.number = document.getElementById("number").innerHTML;
+        //this.onSubmit(this.postData);
     };
     //Bootstrap Modal Close event
     PhoneBookComponent.prototype.hide = function () {
