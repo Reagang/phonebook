@@ -1,88 +1,91 @@
+<!-- Button trigger modal -->
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10">
-        <div class="row">
-          <h2 class="pb-2 mt-4 mb-2  col-md-7">
-            Phone book
-          </h2>
-          <div class="col-md-5 ">
-            <button (click)="onClick($event)" class="btn btn-success float-right pb-2 mt-4 mb-2"><i class="fa fa-plus"></i> Add new entry</button>
-          </div>
+<!-- Modal -->
+<div class="modal fade modal-center" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Phonebook entry:</h4>
+          <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
         </div>
-        <div>
-          <div class="list-group">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
-            </div>
-            <a href="javascript:;" class="list-group-item" *ngFor="let person of values | filter:term">
-              <h4 class="list-group-item-heading">
-                {{person.name}} {{person.surname}}
-              </h4>
-              <p class="list-group-item-text text-muted">
-                {{person.number}}
-              </p>
-            </a>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{'is-invalid': form.get('name').errors && form.get('name').touched}"
+                   id="name">
+            <div *ngIf="form.get('name').hasError('required') && form.get('name').touched" class="invalid-feedback">Please enter a name</div>
+
+            <div *ngIf="form.get('name').hasError('minlength') && form.get('name').touched" class="invalid-feedback">Please enter a name</div>
+
+            <div *ngIf="form.get('name').hasError('maxlength') && form.get('name').touched" class="invalid-feedback">Name cannot exceed 32 characters</div>
           </div>
+          <div class="form-group">
+            <label for="surname" class="col-form-label">Surname:</label>
+            <input type="text" formControlName="surname" class="form-control" [ngClass]="{'is-invalid': form.get('surname').errors && form.get('surname').touched}" id="surname">
+            <div *ngIf="form.get('surname').hasError('required') && form.get('surname').touched" class="invalid-feedback">Please enter a surname</div>
+
+            <div *ngIf="form.get('surname').hasError('minlength') && form.get('surname').touched" class="invalid-feedback">Please enter a surname</div>
+
+            <div *ngIf="form.get('surname').hasError('maxlength') && form.get('surname').touched" class="invalid-feedback">Surname cannot exceed 32 characters</div>
+          </div>
+          <div class="form-group">
+            <label for="number" class="col-form-label">Cell Number:</label>
+            <input type="text" formControlName="number" [ngClass]="{'is-invalid': form.get('number').errors && form.get('number').touched}" class="form-control" id="number">
+            <div *ngIf="form.get('number').hasError('required') && form.get('number').touched" class="invalid-feedback">Please enter a cell number</div>
+
+            <div *ngIf="form.get('number').hasError('minlength') && form.get('number').touched" class="invalid-feedback">Cell number cannot needs to be atleast 10 digits</div>
+
+            <div *ngIf="form.get('number').hasError('maxlength') && form.get('number').touched" class="invalid-feedback">Cell number cannot exceed 10 digits</div>
+            <div *ngIf="form.get('number').hasError('pattern') && form.get('number').touched" class="invalid-feedback">Number values only</div>
+          </div>
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row">
+        <h2 class="pb-2 mt-4 mb-2  col-md-7">
+          Phone book
+        </h2>
+        <div class="col-md-5 ">
+            <button type="button" (click)="onClick($event)" class="btn btn-success float-right pb-2 mt-4 mb-2" data-toggle="modal" data-target="#myModal">
+              Add new entry
+            </button>
+          <!--<button (click)="onClick($event)" class="btn btn-success float-right pb-2 mt-4 mb-2"><i class="fa fa-plus"></i> Add new entry</button>-->
+        </div>
+      </div>
+      <div>
+        <div class="list-group">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+          </div>
+          <a href="javascript:;" class="list-group-item" *ngFor="let person of values | filter:term">
+            <h4 class="list-group-item-heading">
+              {{person.name}} {{person.surname}}
+            </h4>
+            <p class="list-group-item-text text-muted">
+              {{person.number}}
+            </p>
+          </a>
         </div>
       </div>
     </div>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- The Modal -->
-      <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
-        <div class="modal-dialog">
-          <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Phonebook entry:</h4>
-              <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-
-              <div class="form-group">
-                <label for="name" class="col-form-label">Name:</label>
-                <input type="text" formControlName="name" class="form-control" [ngClass]="{'is-invalid': form.get('name').errors && form.get('name').touched}"
-                       id="name">
-                <div *ngIf="form.get('name').hasError('required') && form.get('name').touched" class="invalid-feedback">Please enter a name</div>
-
-                <div *ngIf="form.get('name').hasError('minlength') && form.get('name').touched" class="invalid-feedback">Please enter a name</div>
-
-                <div *ngIf="form.get('name').hasError('maxlength') && form.get('name').touched" class="invalid-feedback">Name cannot exceed 32 characters</div>
-              </div>
-              <div class="form-group">
-                <label for="surname" class="col-form-label">Surname:</label>
-                <input type="text" formControlName="surname" class="form-control" [ngClass]="{'is-invalid': form.get('surname').errors && form.get('surname').touched}" id="surname">
-                <div *ngIf="form.get('surname').hasError('required') && form.get('surname').touched" class="invalid-feedback">Please enter a surname</div>
-
-                <div *ngIf="form.get('surname').hasError('minlength') && form.get('surname').touched" class="invalid-feedback">Please enter a surname</div>
-
-                <div *ngIf="form.get('surname').hasError('maxlength') && form.get('surname').touched" class="invalid-feedback">Surname cannot exceed 32 characters</div>
-              </div>
-              <div class="form-group">
-                <label for="number" class="col-form-label">Number:</label>
-                <input type="text" formControlName="number" [ngClass]="{'is-invalid': form.get('number').errors && form.get('number').touched}" class="form-control" id="number">
-                <div *ngIf="form.get('number').hasError('required') && form.get('number').touched" class="invalid-feedback">Please enter a cell number</div>
-
-                <div *ngIf="form.get('number').hasError('minlength') && form.get('number').touched" class="invalid-feedback">Cell number cannot needs to be atleast 10 digits</div>
-                
-                <div *ngIf="form.get('number').hasError('maxlength') && form.get('number').touched" class="invalid-feedback">Cell number cannot exceed 10 digits</div>
-                <div *ngIf="form.get('number').hasError('pattern') && form.get('number').touched" class="invalid-feedback">Number values only</div>
-              </div>
-
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
-              <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-          
-          </div>
-        </div>
-      </div>
-    </form>
-   
   </div>
+
+</div>

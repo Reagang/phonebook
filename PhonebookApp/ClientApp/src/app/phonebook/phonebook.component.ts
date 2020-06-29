@@ -21,11 +21,6 @@ export class PhoneBookComponent implements OnInit {
 
   ngOnInit() {
     this.createPhonbookEntryForm();
-    //this.form = new FormGroup({
-    //  name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(35)]),
-    //  surname: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(35)]),
-    //  number: new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[0-9]*$")])
-    //})
     this.getPeople();
   }
   createPhonbookEntryForm() {
@@ -45,22 +40,23 @@ export class PhoneBookComponent implements OnInit {
       })
   }
   onSubmit(formData) {
-    if (this.form.status == 'Valid') {
-      this.values.push(formData)
+    
+    if (this.form.status == 'VALID') {
+      this.values.push(this.form.value)
       let cloned = this.values.slice()
       this.values = cloned
-      this.http.post(this.baseUrl + 'PhoneBook', formData)
-        .subscribe((result) => {
-
+      console.log(this.form.value);
+      this.http.post(this.baseUrl + 'PhoneBook', this.form.value)
+        .subscribe((result) => {          
         }, error => {
           console.log(error);
         });
+      this.form.reset();
       this.hide();
     }
    
   }
   showModal: boolean;
-  id: number;
   name: string;
   surname: string;
   number: string;
