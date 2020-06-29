@@ -61,15 +61,6 @@ namespace API.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
-            //CompetitionCategory competitionCategory = new CompetitionCategory();
-            //foreach (var CategoryName in model.SelectedCategories)
-            //{
-            //    competitionCategory.CategoryName = CategoryName;
-            //    competitionCategory.CompetitionID = model.competition.ID;
-
-            //}
-            //_context.Add(model.competition);
-            //await _context.SaveChangesAsync();
         }
 
         // PUT api/<PhoneBookController>/5
