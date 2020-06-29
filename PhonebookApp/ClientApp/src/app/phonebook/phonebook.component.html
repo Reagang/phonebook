@@ -1,6 +1,4 @@
-<!--<p *ngFor="let value of values">
-  {{value.id}},{{value.name}}, {{value.surname}}, {{value.number}}
-</p>-->
+
   <div class="container">
     <div class="row">
       <div class="col-md-10">
@@ -29,7 +27,7 @@
         </div>
       </div>
     </div>
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <!-- The Modal -->
       <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
         <div class="modal-dialog">
@@ -46,15 +44,32 @@
 
               <div class="form-group">
                 <label for="name" class="col-form-label">Name:</label>
-                <input type="text" formControlName="name" ngModel class="form-control" id="name">
+                <input type="text" formControlName="name" class="form-control" [ngClass]="{'is-invalid': form.get('name').errors && form.get('name').touched}"
+                       id="name">
+                <div *ngIf="form.get('name').hasError('required') && form.get('name').touched" class="invalid-feedback">Please enter a name</div>
+
+                <div *ngIf="form.get('name').hasError('minlength') && form.get('name').touched" class="invalid-feedback">Please enter a name</div>
+
+                <div *ngIf="form.get('name').hasError('maxlength') && form.get('name').touched" class="invalid-feedback">Name cannot exceed 32 characters</div>
               </div>
               <div class="form-group">
                 <label for="surname" class="col-form-label">Surname:</label>
-                <input type="text" formControlName="surname" ngModel class="form-control" id="surname">
+                <input type="text" formControlName="surname" class="form-control" [ngClass]="{'is-invalid': form.get('surname').errors && form.get('surname').touched}" id="surname">
+                <div *ngIf="form.get('surname').hasError('required') && form.get('surname').touched" class="invalid-feedback">Please enter a surname</div>
+
+                <div *ngIf="form.get('surname').hasError('minlength') && form.get('surname').touched" class="invalid-feedback">Please enter a surname</div>
+
+                <div *ngIf="form.get('surname').hasError('maxlength') && form.get('surname').touched" class="invalid-feedback">Surname cannot exceed 32 characters</div>
               </div>
               <div class="form-group">
                 <label for="number" class="col-form-label">Number:</label>
-                <input type="text" formControlName="number" ngModel class="form-control" id="number">
+                <input type="text" formControlName="number" [ngClass]="{'is-invalid': form.get('number').errors && form.get('number').touched}" class="form-control" id="number">
+                <div *ngIf="form.get('number').hasError('required') && form.get('number').touched" class="invalid-feedback">Please enter a cell number</div>
+
+                <div *ngIf="form.get('number').hasError('minlength') && form.get('number').touched" class="invalid-feedback">Cell number cannot needs to be atleast 10 digits</div>
+                
+                <div *ngIf="form.get('number').hasError('maxlength') && form.get('number').touched" class="invalid-feedback">Cell number cannot exceed 10 digits</div>
+                <div *ngIf="form.get('number').hasError('pattern') && form.get('number').touched" class="invalid-feedback">Number values only</div>
               </div>
 
             </div>
@@ -64,9 +79,10 @@
               <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
               <button type="submit" class="btn btn-primary">Save</button>
             </div>
-
+          
           </div>
         </div>
       </div>
     </form>
+   
   </div>

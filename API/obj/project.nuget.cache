@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MgkPwfHbOw5Ra5otugGemz/T0/k0MNRJuI5txiRYOGG/xYgzRm73h1QwO+k5Gn80SMg/nSB9WnpPJzjxg6BWWQ==",
+  "dgSpecHash": "3ASr9X5ePARVzBR8zdpkLuxmwFpCR6njlyxERGdxvWnZmYYElD+nLbtXjDiSu+6EYS6urlnPOFj2zkOurNRp5g==",
   "success": true,
-  "projectFilePath": "C:\\Assessments\\Absa\\project\\Phonebook\\API\\API.csproj",
+  "projectFilePath": "C:\\Assessments\\Absa\\project\\Phonebook\\phonebookapp\\Phonebook\\Phonebook\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Reagan\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Reagan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

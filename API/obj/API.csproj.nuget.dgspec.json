@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Assessments\\Absa\\project\\Phonebook\\API\\API.csproj": {}
+    "C:\\Assessments\\Absa\\project\\Phonebook\\phonebookapp\\Phonebook\\Phonebook\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Assessments\\Absa\\project\\Phonebook\\API\\API.csproj": {
+    "C:\\Assessments\\Absa\\project\\Phonebook\\phonebookapp\\Phonebook\\Phonebook\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Assessments\\Absa\\project\\Phonebook\\API\\API.csproj",
+        "projectUniqueName": "C:\\Assessments\\Absa\\project\\Phonebook\\phonebookapp\\Phonebook\\Phonebook\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Assessments\\Absa\\project\\Phonebook\\API\\API.csproj",
+        "projectPath": "C:\\Assessments\\Absa\\project\\Phonebook\\phonebookapp\\Phonebook\\Phonebook\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Reagan\\.nuget\\packages\\",
-        "outputPath": "C:\\Assessments\\Absa\\project\\Phonebook\\API\\obj\\",
+        "outputPath": "C:\\Assessments\\Absa\\project\\Phonebook\\phonebookapp\\Phonebook\\Phonebook\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

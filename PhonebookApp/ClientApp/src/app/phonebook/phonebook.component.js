@@ -7,22 +7,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
+var environment_prod_1 = require("../../environments/environment.prod");
 var PhoneBookComponent = /** @class */ (function () {
-    function PhoneBookComponent(formBuilder, http) {
-        this.formBuilder = formBuilder;
+    function PhoneBookComponent(http, fb) {
         this.http = http;
-        this.form = this.formBuilder.group({
-            name: [''],
-            surname: [''],
-            number: ['']
-        });
+        this.fb = fb;
+        this.baseUrl = environment_prod_1.environment.apiUrl;
     }
     PhoneBookComponent.prototype.ngOnInit = function () {
+        this.createPhonbookEntryForm();
+        //this.form = new FormGroup({
+        //  name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(35)]),
+        //  surname: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(35)]),
+        //  number: new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[0-9]*$")])
+        //})
         this.getPeople();
+    };
+    PhoneBookComponent.prototype.createPhonbookEntryForm = function () {
+        this.form = this.fb.group({
+            name: ['', [forms_1.Validators.required, forms_1.Validators.minLength(2), forms_1.Validators.maxLength(35)]],
+            surname: ['', [forms_1.Validators.required, forms_1.Validators.minLength(2), forms_1.Validators.maxLength(35)]],
+            number: ['', [forms_1.Validators.required, forms_1.Validators.minLength(10), forms_1.Validators.maxLength(10), forms_1.Validators.pattern("^[0-9]*$")]]
+        });
     };
     PhoneBookComponent.prototype.getPeople = function () {
         var _this = this;
-        this.http.get('https://localhost:44362/api/Phonebook')
+        this.http.get(this.baseUrl + 'Phonebook')
             .subscribe(function (response) {
             _this.values = response;
         }, function (error) {
@@ -30,15 +41,17 @@ var PhoneBookComponent = /** @class */ (function () {
         });
     };
     PhoneBookComponent.prototype.onSubmit = function (formData) {
-        this.values.push(formData);
-        var cloned = this.values.slice();
-        this.values = cloned;
-        this.http.post('https://localhost:44362/api/' + 'PhoneBook', formData)
-            .subscribe(function (result) {
-        }, function (error) {
-            console.log(error);
-        });
-        this.hide();
+        if (this.form.status == 'Valid') {
+            this.values.push(formData);
+            var cloned = this.values.slice();
+            this.values = cloned;
+            this.http.post(this.baseUrl + 'PhoneBook', formData)
+                .subscribe(function (result) {
+            }, function (error) {
+                console.log(error);
+            });
+            this.hide();
+        }
     };
     PhoneBookComponent.prototype.onClick = function (event) {
         this.showModal = true;
