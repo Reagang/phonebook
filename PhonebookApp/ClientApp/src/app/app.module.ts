@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PhoneBookComponent } from './phonebook/phonebook.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -19,8 +17,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     PhoneBookComponent
   ],
   imports: [
@@ -32,8 +28,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     Ng2SearchPipeModule,
     RouterModule.forRoot([
       { path: '', component: PhoneBookComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
     ]),
     BrowserAnimationsModule
   ],
