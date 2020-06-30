@@ -4,6 +4,9 @@ C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastru
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csprojAssemblyReference.cache
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.AssemblyInfoInputs.cache
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.AssemblyInfo.cs
-C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.CoreCompileInputs.cache
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.dll
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\bin\Debug\netcoreapp3.1\Core.dll
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\bin\Debug\netcoreapp3.1\Core.pdb
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.CopyComplete
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.CoreCompileInputs.cache

@@ -120,3 +120,7 @@ C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\API\obj\D
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\API\obj\Debug\netcoreapp3.1\API.dll
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\API\obj\Debug\netcoreapp3.1\API.pdb
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\API\bin\Debug\netcoreapp3.1\Core.dll
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\API\bin\Debug\netcoreapp3.1\Infrastructure.dll
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\API\bin\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\API\bin\Debug\netcoreapp3.1\Core.pdb

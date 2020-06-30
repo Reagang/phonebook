@@ -17,6 +17,7 @@ using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using API.Helper;
+using Infrastructure.Ioc;
 
 namespace API
 {
@@ -36,7 +37,7 @@ namespace API
 
             services.AddCors();
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<IPhonebookRepository, PhonebookRepository>();
+            DependencyContainer.RegisterServices(services);
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
