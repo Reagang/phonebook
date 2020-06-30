@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -25,17 +25,25 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\material\material.module.ts" />
+    <None Remove="ClientApp\src\app\models\db-data.ts" />
     <None Remove="ClientApp\src\app\models\phonebook.model.ts" />
+    <None Remove="ClientApp\src\app\models\phonebookentry.model.ts" />
     <None Remove="ClientApp\src\app\phonebook\phonebook.component.ts" />
+    <None Remove="ClientApp\src\app\services\alertifyjs.service.ts" />
     <None Remove="ClientApp\src\app\services\error.interceptor.ts" />
+    <None Remove="ClientApp\src\app\services\phonebook.service.spec.ts" />
     <None Remove="ClientApp\src\app\services\phonebook.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\material\material.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\phonebook.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\db-data.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\phonebookentry.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\phonebook\phonebook.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\alertifyjs.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\error.interceptor.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\phonebook.service.spec.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\phonebook.service.ts" />
   </ItemGroup>
 

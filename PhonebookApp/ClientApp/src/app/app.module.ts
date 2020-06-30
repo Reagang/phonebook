@@ -12,6 +12,8 @@ import { PhoneBookComponent } from './phonebook/phonebook.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ErrorInterceptorProvider } from './services/error.interceptor';
+import { PhoneBookService } from './services/phonebook.service';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { ErrorInterceptorProvider } from './services/error.interceptor';
     BrowserAnimationsModule
   ],
   providers: [
+    PhoneBookService,
     ErrorInterceptorProvider
   ],
   bootstrap: [AppComponent]

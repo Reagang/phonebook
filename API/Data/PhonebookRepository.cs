@@ -20,7 +20,7 @@ namespace API.Data
         {
             try
             {
-                return await _context.Person.Include(p => p.Phones).ToListAsync();
+                return await _context.Person.Include(p => p.Phones).OrderByDescending(o => o.CreationTime).ToListAsync();
             }
             catch (Exception ex)
             {

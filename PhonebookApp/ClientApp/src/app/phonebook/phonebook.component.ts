@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http'
 import { error } from '@angular/compiler/src/util';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { environment } from '../../environments/environment.prod';
+import { AlertifyService } from '../services/alertifyjs.service';
+import { PhoneBookService } from '../services/phonebook.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +18,7 @@ export class PhoneBookComponent implements OnInit {
   postData: any;
   term: string;
   form: FormGroup;
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  constructor(private http: HttpClient, private fb: FormBuilder, private alertify: AlertifyService, private phonebookService: PhoneBookService) {
     
   }
 
@@ -32,25 +35,30 @@ export class PhoneBookComponent implements OnInit {
   }
 
   getPeople() {
-    this.http.get(this.baseUrl + 'Phonebook')
-      .subscribe(response => {
-        this.values = response;
-      }, error => {
-          console.log(error);
-      })
+    this.phonebookService.getPhonebookList().subscribe((response) => {
+      this.values = response;
+    }, error => {
+        this.alertify.error(error);
+    });
   }
-  onSubmit(formData) {
+  onSubmit() {
     
     if (this.form.status == 'VALID') {
       this.values.push(this.form.value)
       let cloned = this.values.slice()
       this.values = cloned
-      console.log(this.form.value);
-      this.http.post(this.baseUrl + 'PhoneBook', this.form.value)
-        .subscribe((result) => {          
-        }, error => {
-          console.log(error);
-        });
+      let postSuccess = true
+
+      this.phonebookService.addPhonebookEntry(this.form.value).subscribe(() => {
+        //this.alertify.success("Added succesfully");
+      }, error => {
+          postSuccess = false;
+          ///this.alertify.error(error);
+      });
+
+      if (postSuccess === true) {
+        this.alertify.success("Added succesfully");
+      }
       this.form.reset();
       this.hide();
     }
@@ -65,5 +73,7 @@ export class PhoneBookComponent implements OnInit {
   }
   hide() {
     this.showModal = false;
+    $(document.body).removeClass("modal-open");
+    $(".modal-backdrop").remove();
   }
 }

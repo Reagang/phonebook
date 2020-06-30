@@ -9,10 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var environment_prod_1 = require("../../environments/environment.prod");
+var $ = require("jquery");
 var PhoneBookComponent = /** @class */ (function () {
-    function PhoneBookComponent(http, fb) {
+    function PhoneBookComponent(http, fb, alertify, phonebookService) {
         this.http = http;
         this.fb = fb;
+        this.alertify = alertify;
+        this.phonebookService = phonebookService;
         this.baseUrl = environment_prod_1.environment.apiUrl;
     }
     PhoneBookComponent.prototype.ngOnInit = function () {
@@ -28,24 +31,27 @@ var PhoneBookComponent = /** @class */ (function () {
     };
     PhoneBookComponent.prototype.getPeople = function () {
         var _this = this;
-        this.http.get(this.baseUrl + 'Phonebook')
-            .subscribe(function (response) {
+        this.phonebookService.getPhonebookList().subscribe(function (response) {
             _this.values = response;
         }, function (error) {
-            console.log(error);
+            _this.alertify.error(error);
         });
     };
-    PhoneBookComponent.prototype.onSubmit = function (formData) {
+    PhoneBookComponent.prototype.onSubmit = function () {
         if (this.form.status == 'VALID') {
             this.values.push(this.form.value);
             var cloned = this.values.slice();
             this.values = cloned;
-            console.log(this.form.value);
-            this.http.post(this.baseUrl + 'PhoneBook', this.form.value)
-                .subscribe(function (result) {
+            var postSuccess_1 = true;
+            this.phonebookService.addPhonebookEntry(this.form.value).subscribe(function () {
+                //this.alertify.success("Added succesfully");
             }, function (error) {
-                console.log(error);
+                postSuccess_1 = false;
+                ///this.alertify.error(error);
             });
+            if (postSuccess_1 === true) {
+                this.alertify.success("Added succesfully");
+            }
             this.form.reset();
             this.hide();
         }
@@ -55,6 +61,8 @@ var PhoneBookComponent = /** @class */ (function () {
     };
     PhoneBookComponent.prototype.hide = function () {
         this.showModal = false;
+        $(document.body).removeClass("modal-open");
+        $(".modal-backdrop").remove();
     };
     PhoneBookComponent = __decorate([
         core_1.Component({
