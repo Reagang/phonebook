@@ -10,6 +10,6 @@ namespace Core.Interfaces
     public interface IPhonebookRepository
     {
         Task<IEnumerable<Person>> GetPhonebookList();
-        Task<bool> AddPhoneBookEntry(PhonebookEntryRequest personPhoneDto);
+        Task<bool> AddPhoneBookEntry(PhonebookEntryRequestDto personPhoneDto);
     }
 }

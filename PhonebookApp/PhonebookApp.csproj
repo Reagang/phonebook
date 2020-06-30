@@ -31,7 +31,6 @@
     <None Remove="ClientApp\src\app\phonebook\phonebook.component.ts" />
     <None Remove="ClientApp\src\app\services\alertifyjs.service.ts" />
     <None Remove="ClientApp\src\app\services\error.interceptor.ts" />
-    <None Remove="ClientApp\src\app\services\phonebook.service.spec.ts" />
     <None Remove="ClientApp\src\app\services\phonebook.service.ts" />
   </ItemGroup>
 
@@ -45,6 +44,10 @@
     <TypeScriptCompile Include="ClientApp\src\app\services\error.interceptor.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\phonebook.service.spec.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\phonebook.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\services\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

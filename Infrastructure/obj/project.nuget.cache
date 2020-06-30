@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "FszwpFVnnNrhoIAqOV7Ia8UJpVYd/dOfaGp2hLkI4sz2ExPD4/nFLxBkvsK/le2M+B/eQRtq2QqsQH/w8Uw28w==",
+  "dgSpecHash": "JJ/4DORfpcO/nw8EylKJQn7Qv9q9bp6hCI3MSLWcdmcTp797fadQaGrDqEPMW3757QCYmP4c8GX3wK5HxgJlFA==",
   "success": true,
   "projectFilePath": "C:\\Assessments\\Absa\\project\\Phonebook\\phonebookapp\\Phonebook\\Phonebook\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Reagan\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Reagan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Reagan\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -39,9 +39,10 @@ var PhoneBookComponent = /** @class */ (function () {
     };
     PhoneBookComponent.prototype.onSubmit = function () {
         if (this.form.status == 'VALID') {
-            this.values.push(this.form.value);
-            var cloned = this.values.slice();
-            this.values = cloned;
+            console.log(this.form.value);
+            //this.values.push(this.form.value)
+            //let cloned = this.values.slice()
+            //this.values = cloned
             var postSuccess_1 = true;
             this.phonebookService.addPhonebookEntry(this.form.value).subscribe(function () {
                 //this.alertify.success("Added succesfully");

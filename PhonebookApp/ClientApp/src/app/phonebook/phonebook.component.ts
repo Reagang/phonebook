@@ -44,9 +44,10 @@ export class PhoneBookComponent implements OnInit {
   onSubmit() {
     
     if (this.form.status == 'VALID') {
-      this.values.push(this.form.value)
-      let cloned = this.values.slice()
-      this.values = cloned
+      console.log(this.form.value);
+      //this.values.push(this.form.value)
+      //let cloned = this.values.slice()
+      //this.values = cloned
       let postSuccess = true
 
       this.phonebookService.addPhonebookEntry(this.form.value).subscribe(() => {

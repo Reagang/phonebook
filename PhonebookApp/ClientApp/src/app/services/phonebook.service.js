@@ -19,6 +19,7 @@ var PhoneBookService = /** @class */ (function () {
             .pipe(operators_1.map(function (res) { return res['payload']; }));
     };
     PhoneBookService.prototype.addPhonebookEntry = function (model) {
+        console.log(model);
         return this.http.post(this.baseUrl + 'PhoneBook', model);
     };
     PhoneBookService = __decorate([

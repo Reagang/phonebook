@@ -23,7 +23,8 @@ export class PhoneBookService {
         );
   }
 
-  addPhonebookEntry(model: any): Observable<PhonebookEntry> {
-    return this.http.post<PhonebookEntry>(this.baseUrl + 'PhoneBook', model);
+  addPhonebookEntry(model: any): Observable<PhonebookEntry[]> {
+    console.log(model);
+    return this.http.post<PhonebookEntry[]>(this.baseUrl + 'PhoneBook', model);
   }
 }

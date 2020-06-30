@@ -32,7 +32,7 @@ describe("PhonebookService", () => {
 
     const req = httpTestingController.expectOne('/api/Phonebook');
     expect(req.request.method).toEqual("GET");
-    req.flush({ payload: Object(CONTACT) })
+    req.flush({ payload: Object(CONTACT) });
     
   });
 
@@ -46,17 +46,15 @@ describe("PhonebookService", () => {
     };
     phoneService.addPhonebookEntry(changes)
       .subscribe(contact => {
-        expect(contact.name).toBe('Reagan');
+        expect(contact[0].name).toBe('Reagan');
       });
 
-    const req = httpTestingController.expectOne('/api/phonebook/39');
+    const req = httpTestingController.expectOne('/api/phonebook/100');
     expect(req.request.method).toEqual("POST");
 
-    expect(req.request.body.name)
-      .toEqual(changes.name);
+    expect(req.request.body.name).toEqual(changes[0].name);
 
-    req.flush(CONTACT[39]
-    )
+    req.flush(CONTACT[100]);
   });
 
   afterEach(() => {

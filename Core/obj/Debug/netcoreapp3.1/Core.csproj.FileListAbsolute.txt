@@ -6,3 +6,4 @@ C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Core\obj\
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Core\obj\Debug\netcoreapp3.1\Core.dll
 C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Core\obj\Debug\netcoreapp3.1\Core.pdb
+C:\Assessments\Absa\project\Phonebook\phonebookapp\Phonebook\Phonebook\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache

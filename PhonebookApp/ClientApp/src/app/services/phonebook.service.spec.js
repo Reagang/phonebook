@@ -36,13 +36,13 @@ describe("PhonebookService", function () {
         };
         phoneService.addPhonebookEntry(changes)
             .subscribe(function (contact) {
-            expect(contact.name).toBe('Reagan');
+            expect(contact[0].name).toBe('Reagan');
         });
-        var req = httpTestingController.expectOne('/api/phonebook/39');
+        var req = httpTestingController.expectOne('/api/phonebook/100');
         expect(req.request.method).toEqual("POST");
         expect(req.request.body.name)
             .toEqual(changes.name);
-        req.flush(db_data_1.CONTACT[39]);
+        req.flush(db_data_1.CONTACT[100]);
     });
     afterEach(function () {
         httpTestingController.verify();

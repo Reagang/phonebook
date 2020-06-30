@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Data;
-using API.Dtos;
+using API.ViewModels;
 using AutoMapper;
+using Core.Dtos;
+using Core.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +31,7 @@ namespace API.Controllers
         {
             var person = await _repo.GetPhonebookList();
 
-            var phonebookList = _mapper.Map<IEnumerable<PhonebookListDto>>(person);
+            var phonebookList = _mapper.Map<IEnumerable<PhonebookListViewModel>>(person);
             return Ok(phonebookList);
         }
 
@@ -43,13 +44,14 @@ namespace API.Controllers
 
         // POST api/<PhoneBookController>
         [HttpPost]
-        public async Task<ActionResult> Post(PhonebookEntryRequest model)
+        public async Task<ActionResult> Post([FromBody]PhonebookEntryViewModel model)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    await _repo.AddPhoneBookEntry(model);
+                    var request = _mapper.Map<PhonebookEntryRequestDto>(model);
+                    await _repo.AddPhoneBookEntry(request);
                     return Ok("Inserted successfully!");
                 }
                 else

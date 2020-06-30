@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Dtos
+namespace API.ViewModels
 {
-    public class PersonPhoneDto
+    public class PersonPhoneViewModel
     {
         public string Number { get; set; }
     }

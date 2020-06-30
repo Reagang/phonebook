@@ -32,14 +32,14 @@ namespace Infrastructure.Repositories
 
 
         }
-        public async Task<bool> AddPhoneBookEntry(PhonebookEntryRequest personPhoneDto)
+        public async Task<bool> AddPhoneBookEntry(PhonebookEntryRequestDto personPhoneDto)
         {
             try
             {
                 Person p = new Person();
                 p.Name = personPhoneDto.Name;
                 p.Surname = personPhoneDto.Surname;
-
+                p.IsActive = true;
                 List<Phone> phList = new List<Phone>();
 
                 Phone ph = new Phone()
