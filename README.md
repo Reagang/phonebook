@@ -59,5 +59,34 @@ View phonebook where I can search for entries(text box to search and list view)
 
 ![BackEnd](demo/backend.JPG)
 ![FrontEnd](demo/frontend.JPG)
+![FrontEnd](demo/database.JPG)
+
+
+## Some other tool and libraries used:
+
+* EntityFrameworkCore
+* Automapper
+* xunit
+* Moq
+* DevOps
+* Jasmin
+* Angular Material
+* Angular Bootstrap
+* Dependency Injection
+* Repository Pattern
+* Cors
+* Typescript
+* RXJS
+
+
+
+
+
+
+
+
+
+
+
 
 
