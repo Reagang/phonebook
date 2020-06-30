@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CONTACT } from '../db-data';
 import 'jasmine';
-import { Phonebook } from '../models/phonebook.model';
 import { PhonebookEntry } from '../models/phonebookentry.model';
 
 

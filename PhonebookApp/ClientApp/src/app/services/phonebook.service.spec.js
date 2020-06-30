@@ -40,8 +40,7 @@ describe("PhonebookService", function () {
         });
         var req = httpTestingController.expectOne('/api/phonebook/100');
         expect(req.request.method).toEqual("POST");
-        expect(req.request.body.name)
-            .toEqual(changes.name);
+        expect(req.request.body.name).toEqual(changes[0].name);
         req.flush(db_data_1.CONTACT[100]);
     });
     afterEach(function () {

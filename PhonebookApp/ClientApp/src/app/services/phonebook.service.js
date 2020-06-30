@@ -8,18 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var environment_prod_1 = require("../../environments/environment.prod");
-var operators_1 = require("rxjs/operators");
 var PhoneBookService = /** @class */ (function () {
     function PhoneBookService(http) {
         this.http = http;
         this.baseUrl = environment_prod_1.environment.apiUrl;
     }
     PhoneBookService.prototype.getPhonebookList = function () {
-        return this.http.get(this.baseUrl + 'Phonebook')
-            .pipe(operators_1.map(function (res) { return res['payload']; }));
+        return this.http.get(this.baseUrl + 'Phonebook');
     };
     PhoneBookService.prototype.addPhonebookEntry = function (model) {
-        console.log(model);
         return this.http.post(this.baseUrl + 'PhoneBook', model);
     };
     PhoneBookService = __decorate([

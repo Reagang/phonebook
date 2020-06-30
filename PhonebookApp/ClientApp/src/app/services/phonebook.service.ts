@@ -17,14 +17,11 @@ export class PhoneBookService {
   }
 
   getPhonebookList(): Observable<Phonebook[]> {
-    return this.http.get(this.baseUrl + 'Phonebook')
-      .pipe(
-        map(res => res['payload'])
-        );
+    return this.http.get<Phonebook[]>(this.baseUrl + 'Phonebook');
   }
 
   addPhonebookEntry(model: any): Observable<PhonebookEntry[]> {
-    console.log(model);
+    
     return this.http.post<PhonebookEntry[]>(this.baseUrl + 'PhoneBook', model);
   }
 }
