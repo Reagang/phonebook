@@ -24,7 +24,8 @@ View phonebook where I can search for entries(text box to search and list view)
 * [Angular 10](https://angular.io/docs)
 * SQL Server 
 
-#Demo
+## Demo
+
 ![Demo video](demo/PhonebookDemo.gif)
 
 ## Practices
@@ -49,11 +50,12 @@ View phonebook where I can search for entries(text box to search and list view)
 
 **Core:**            Business rules and domain logic.
 
-**Model:**           Data transfer objects.
+**Infrastructure:**  Data access implementationss.
 
 **Phonebook.Test:**  Unit tests
 
 **PhonebookApp**     Frontend (Angular 10)
+![Clean Architecture](demo/clean-architecture.png)
 
 #Project Structure
 
